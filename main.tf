@@ -10,7 +10,7 @@ resource "aws_instance" "staging" {
   instance_type               = var.instance_type
   key_name                    = var.key_name
   security_groups             = ["${aws_security_group.ssh-security-group.id}"]
-  subnet_id                   = aws_subnet.public-subnet-1.id
+  subnet_id                   = aws_subnet.mira-public-subnet-1.id
   associate_public_ip_address = true
   #user_data                   = "${data.template_file.provision.rendered}"
   #iam_instance_profile = "${aws_iam_instance_profile.some_profile.id}"
@@ -29,7 +29,7 @@ resource "aws_instance" "easyschool-prod" {
   instance_type               = var.instance_type
   key_name                    = var.key_name
   security_groups             = ["${aws_security_group.webserver-security-group.id}"]
-  subnet_id                   = aws_subnet.private-subnet-1.id
+  subnet_id                   = aws_subnet.mira-private-subnet-1.id
   associate_public_ip_address = false
   #user_data                   = "${data.template_file.provision.rendered}"
   #iam_instance_profile = "${aws_iam_instance_profile.some_profile.id}"
