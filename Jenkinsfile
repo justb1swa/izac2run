@@ -28,7 +28,7 @@ pipeline {
 
     stage('Terraform in Action') {
       steps {
-      sh 'terraform -input=false -compact-warnings -auto-approve'
+      sh 'terraform apply -input=false -compact-warnings -auto-approve'
       }
     }
 
