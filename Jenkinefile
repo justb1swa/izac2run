@@ -3,7 +3,6 @@ pipeline {
     node {
       label 'iac'
     }
-
   }
 
     stages {
@@ -13,7 +12,7 @@ pipeline {
 
           }
         }
-        stage ("Build") {
+        stage ("Build Now") {
             steps {
                 sh 'echo $AWS_ACCESS_KEY_ID'
 		        sh 'echo $AWS_SECRET_ACCESS_KEY'
