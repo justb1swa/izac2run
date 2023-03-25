@@ -8,7 +8,7 @@ provider "aws" {
 resource "aws_instance" "staging" {
   ami                         = var.ami_id
   instance_type               = var.instance_type
-  key_name                    = var.key_name
+  #key_name                    = var.key_name
   security_groups             = ["${aws_security_group.ssh-security-group.id}"]
   subnet_id                   = aws_subnet.mira-public-subnet-1.id
   associate_public_ip_address = true
@@ -30,10 +30,10 @@ resource "aws_key_pair" "developer" {
  
 }
 #Create a new EC2 launch configuration
-resource "aws_instance" "easyschool-prod" {
+resource "aws_instance" "prod" {
   ami                         = var.ami_id
   instance_type               = var.instance_type
-  key_name                    = var.key_name
+  #key_name                    = var.key_name
   security_groups             = ["${aws_security_group.webserver-security-group.id}"]
   subnet_id                   = aws_subnet.mira-private-subnet-1.id
   associate_public_ip_address = false
@@ -52,8 +52,6 @@ resource "aws_key_pair" "developer" {
     "Name" = "prod"
   }
  
-}
-################################
- 
+} 
 
 
