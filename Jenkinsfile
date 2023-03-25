@@ -6,7 +6,7 @@ pipeline {
 
   }
   stages {
-    stage('Checkout: DoIt') {
+    stage('Checkout') {
       steps {
         checkout(scm: [$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/justb1swa/izac2run.git']]], changelog: true)
       }
@@ -28,7 +28,7 @@ pipeline {
 
     stage('Terraform in Action') {
       steps {
-      sh 'terraform apply -input=false -compact-warnings -auto-approve'
+        sh 'terraform apply -input=false -compact-warnings -auto-approve'
       }
     }
 
