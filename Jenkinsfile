@@ -28,9 +28,7 @@ pipeline {
 
     stage('Terraform in Action') {
       steps {
-       # echo "Terraform action  --> ${action}"
-       # sh ('terraform ${action} --auto-approve')
-        sh 'terraform -input=false -compact-warnings -auto-approve'
+      sh 'terraform -input=false -compact-warnings -auto-approve'
       }
     }
 
