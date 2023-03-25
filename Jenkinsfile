@@ -6,7 +6,7 @@ pipeline {
 
   }
   stages {
-    stage('Checkout') {
+    stage('Checkout:DoIt') {
       agent {
         node {
           label 'iac'
