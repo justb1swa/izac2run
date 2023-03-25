@@ -7,6 +7,12 @@ pipeline {
   }
   stages {
     stage('Checkout') {
+      agent {
+        node {
+          label 'iac'
+        }
+
+      }
       steps {
         checkout(scm: [$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/justb1swa/izac2run.git']]], changelog: true)
       }
