@@ -15,8 +15,8 @@ pipeline {
         stage ("Build Now") {
             steps {
                 sh 'echo $AWS_ACCESS_KEY_ID'
-		        sh 'echo $AWS_SECRET_ACCESS_KEY'
-		        sh 'echo $AWS_SESSION_TOKEN' 
+		sh 'echo $AWS_SECRET_ACCESS_KEY'
+		sh 'echo $AWS_SESSION_TOKEN' 
             }
         }
         stage ("Initialize Terraform ") {
@@ -27,7 +27,7 @@ pipeline {
         
         stage ("Terraform in Action") {
             steps {
-                echo "Terraform action is --> ${action}"
+                echo "Terraform action  --> ${action}"
                 sh ('terraform ${action} -compact-warnings --auto-approve') 
            }
         }
